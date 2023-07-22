@@ -27,17 +27,19 @@ body {
   flex: 1;
 }
 
-.buttons-container {
+.button-container {
   background-color: gray;
   flex: 1;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1px;
+  flex-direction: column;
   padding: 8px;
 }
 
+.button-row {
+  flex:1;
+  display: flex;
+}
+
 .button {
-  flex-shrink: 1;
-  flex-grow: 1;
-  flex-basis: 24.8%;
+  flex: 1;
 }
