@@ -43,7 +43,6 @@ body {
 }
 
 .button-container {
-  background-color: gray;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -59,4 +58,6 @@ body {
 
 .button {
   flex: 1;
+  border-radius: 5px;
+  border-color: whitesmoke;
 }
