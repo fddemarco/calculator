@@ -25,6 +25,15 @@ body {
 .screen {
   background-color: ghostwhite;
   flex: 1;
+  display: flex;
+  align-items:last baseline;
+  justify-content:flex-end
+}
+
+.screen-display {
+  background-color: aquamarine;
+  height: 50%;
+  flex-basis:100%;
 }
 
 .button-container {
@@ -33,11 +42,13 @@ body {
   display: flex;
   flex-direction: column;
   padding: 8px;
+  gap: 2px;
 }
 
 .button-row {
   flex:1;
   display: flex;
+  gap: 2px;
 }
 
 .button {
