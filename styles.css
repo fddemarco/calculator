@@ -23,17 +23,23 @@ body {
 }
 
 .screen {
-  background-color: ghostwhite;
   flex: 1;
   display: flex;
-  align-items:last baseline;
-  justify-content:flex-end
+  flex-direction: column;
 }
 
+.header {
+  flex: 1;
+  font-size: 24px;
+  padding: 8px;
+  font-weight: 550;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .screen-display {
+  flex: 4;
   background-color: aquamarine;
-  height: 50%;
-  flex-basis:100%;
 }
 
 .button-container {
