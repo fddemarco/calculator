@@ -27,7 +27,17 @@ body {
   flex: 1;
 }
 
-.buttons {
+.buttons-container {
   background-color: gray;
   flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  padding: 8px;
+}
+
+.button {
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 24.8%;
 }
