@@ -10,4 +10,7 @@ describe('Calculator operations', () => {
   test('Multiplication operation', () => {
     expect(new Calculator('5', '5', '*').calc()).toEqual(25);
   });
+  test('Division operation', () => {
+    expect(new Calculator('5', '5', '/').calc()).toEqual(1);
+  });
 });
