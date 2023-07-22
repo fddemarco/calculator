@@ -1,8 +1,21 @@
 class NotImplementedError extends Error {
   constructor(message) {
+    super(message);
     this.message = 'Should be implemented in a subclass';
     this.name = 'NotImplementedError';
   }
+  logError() {
+    console.error(`[${this.name}] ${this.message}`);
+  }
+}
+
+class InvalidOperatorError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'InvalidOperatorError';
+    this.message = 'Supported operations are +, -, *, *.'
+  }
+
   logError() {
     console.error(`[${this.name}] ${this.message}`);
   }
@@ -25,7 +38,7 @@ class Calculator {
     else if (op == '-') operatorConstructor = SubtractionOperator;
     else if (op == '*') operatorConstructor = MultiplicationOperator;
     else if (op == '/') operatorConstructor = DivisionOperator;
-    else throw new Error('Invalid operator!');
+    else throw new InvalidOperatorError();
 
     return new operatorConstructor(this.x, this.y)
   }
@@ -66,4 +79,4 @@ class DivisionOperator extends Operator {
   }
 }
 
-module.exports = Calculator;
+module.exports = {Calculator, InvalidOperatorError};

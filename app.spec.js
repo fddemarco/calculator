@@ -1,4 +1,4 @@
-const Calculator = require('./app.js');
+const {Calculator, InvalidOperatorError}  = require('./app.js');
 
 describe('Calculator operations', () => {
   test('Sum operation', () => {
@@ -13,4 +13,8 @@ describe('Calculator operations', () => {
   test('Division operation', () => {
     expect(new Calculator('5', '5', '/').calc()).toEqual(1);
   });
+  test('Invalid operator error', () => {
+    expect(() => new Calculator('5', '5', 'invalid operator')).toThrow(InvalidOperatorError);
+  });
+
 });
