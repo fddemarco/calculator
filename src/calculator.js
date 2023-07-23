@@ -5,7 +5,6 @@ class Calculator {
 
   clickOn(button){
     this.input.push(button);
-    console.log(button.textContent());
   }
 
   clickedOn(){

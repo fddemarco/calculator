@@ -7,8 +7,7 @@ body {
 }
 
 .container {
-  width: 40vw;
-  height: 80vh;
+  aspect-ratio: 9/16;
   display: flex;
 }
 
@@ -40,6 +39,11 @@ body {
 .screen-display {
   flex: 4;
   background-color: aquamarine;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 32px;
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .button-container {

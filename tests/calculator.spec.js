@@ -47,4 +47,18 @@ describe('Calculator operations', () => {
     calculator.clickOn(button2);
     expect(calculator.displayContent()).toEqual(`1 ${button2.textContent()} `);
   });
+
+  test('Displays operators and numbers spaced between', () => {
+    const calculator = new Calculator();
+    const number1 = new CalculatorButtonNumber(1);
+    calculator.clickOn(number1);
+
+    
+    const operator = new CalculatorButtonOperator('+');
+    calculator.clickOn(operator);
+
+    const number2 = new CalculatorButtonNumber(1);
+    calculator.clickOn(number2);
+    expect(calculator.displayContent()).toEqual(`1 ${operator.textContent()} 1`);
+  });
 });
