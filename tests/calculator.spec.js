@@ -18,10 +18,22 @@ describe('Calculator operations', () => {
     expect(isButtonClicked).toBe(true);
   });
   
-  test('Displays digits', () => {
+  test('Displays single digit', () => {
     const calculator = new Calculator();
     const button = new CalculatorButtonNumber(1);
     calculator.clickOn(button);
     expect(calculator.displayContent()).toEqual('1');
+  });
+
+  
+  test('Displays two digits', () => {
+    const calculator = new Calculator();
+    const button1 = new CalculatorButtonNumber(1);
+    calculator.clickOn(button1);
+
+    
+    const button2 = new CalculatorButtonNumber(1);
+    calculator.clickOn(button2);
+    expect(calculator.displayContent()).toEqual('11');
   });
 });
