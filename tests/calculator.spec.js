@@ -10,11 +10,18 @@ const {
 describe('Calculator operations', () => {
   test('Click On Number', () => {
     const calculator = new Calculator();
-    const button = new CalculatorButtonOperator('+');
+    const button = new CalculatorButtonNumber(1);
     calculator.clickOn(button);
 
     const isButtonClicked = calculator.clickedOn().includes(button) &&
                             calculator.clickedOn().length == 1;
     expect(isButtonClicked).toBe(true);
+  });
+  
+  test('Displays digits', () => {
+    const calculator = new Calculator();
+    const button = new CalculatorButtonNumber(1);
+    calculator.clickOn(button);
+    expect(calculator.displayContent()).toEqual('1');
   });
 });

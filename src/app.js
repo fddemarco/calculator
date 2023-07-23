@@ -17,13 +17,13 @@ class CalculatorController {
     buttons.map(row => this.createButtonRow(row));
   }
   
- createButtonRow(row){
+ createButtonRow(rowContent){
     const buttonContainer = document.querySelector('.button-container');
     const buttonRow = document.createElement('div');
     buttonRow.classList.add('button-row');
     buttonContainer.appendChild(buttonRow);
   
-    row.map(content => this.createButton(content, buttonRow));
+    rowContent.map(content => this.createButton(content, buttonRow));
   }
   
   createButton(content, buttonRow){
@@ -33,8 +33,12 @@ class CalculatorController {
 
     const buttonObject = new CalculatorButtonMapper(content).value()
     button.innerHTML = buttonObject.textContent();  
-    button.addEventListener('click', () =>
-      this.calculator.clickOn(buttonObject)
+    button.addEventListener('click', () => {
+        this.calculator.clickOn(buttonObject);
+        const displayContent = this.calculator.displayContent();
+        const displayScreen = document.querySelector('.screen-display');
+        displayScreen.innerHTML = displayContent;
+      }      
     )
   }  
 }
