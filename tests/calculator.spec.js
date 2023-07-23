@@ -36,4 +36,15 @@ describe('Calculator operations', () => {
     calculator.clickOn(button2);
     expect(calculator.displayContent()).toEqual('11');
   });
+
+  test('Displays operators and numbers spaced between', () => {
+    const calculator = new Calculator();
+    const button1 = new CalculatorButtonNumber(1);
+    calculator.clickOn(button1);
+
+    
+    const button2 = new CalculatorButtonOperator('+');
+    calculator.clickOn(button2);
+    expect(calculator.displayContent()).toEqual(`1 ${button2.textContent()} `);
+  });
 });

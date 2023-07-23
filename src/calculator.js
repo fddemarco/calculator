@@ -15,9 +15,9 @@ class Calculator {
   displayContent(){
     let output = '';
     for (let button of this.input){
-      output += `${button.textContent()}`;
+      output += `${button.displayContent()}`;
     }
-    return output.trim();
+    return output;
   }
 }
 

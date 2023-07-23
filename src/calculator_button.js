@@ -21,6 +21,10 @@ class CalculatorButton{
   textContent(){
     return this.content;
   }
+
+  displayContent(){
+    return this.textContent();
+  }
 }
 
 class CalculatorButtonOperator extends CalculatorButton{
@@ -30,11 +34,14 @@ class CalculatorButtonOperator extends CalculatorButton{
     if (this.content == '/') return '&divide;'
     if (this.content == '*') return '&times;'
   }
+
+  displayContent(){
+    return ` ${this.textContent()} `;
+  }
 }
 
 
 class CalculatorButtonNumber extends CalculatorButton{
-
 }
 
 class CalculatorButtonFunction extends CalculatorButton{
@@ -48,4 +55,5 @@ module.exports = {
   CalculatorButtonMapper, 
   CalculatorButtonFunction, 
   CalculatorButtonOperator, 
-  CalculatorButtonNumber}
+  CalculatorButtonNumber,
+}
