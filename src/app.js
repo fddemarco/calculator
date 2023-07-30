@@ -15,6 +15,7 @@ class CalculatorController {
   
     const buttons = [fstRow, sndRow, thdRow, lastRow];
     buttons.map(row => this.createButtonRow(row));
+    controller.displayContent();
   }
   
  createButtonRow(rowContent){
@@ -35,12 +36,16 @@ class CalculatorController {
     button.innerHTML = buttonObject.textContent();  
     button.addEventListener('click', () => {
         this.calculator.clickOn(buttonObject);
-        const displayContent = this.calculator.displayContent();
-        const displayScreen = document.querySelector('.screen-display');
-        displayScreen.innerHTML = displayContent;
+        this.displayContent();
       }      
     )
-  }  
+  }
+  
+  displayContent(){
+    const displayContent = this.calculator.displayContent();
+    const displayScreen = document.querySelector('.screen-display');
+    displayScreen.innerHTML = displayContent;
+  }
 }
 
 
