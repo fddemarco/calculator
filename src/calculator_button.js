@@ -29,25 +29,42 @@ class CalculatorButton{
 
 class CalculatorButtonOperator extends CalculatorButton{
   textContent(){
-    if (this.content == '+') return '&plus;'
-    if (this.content == '-') return '&minus;'
-    if (this.content == '/') return '&divide;'
-    if (this.content == '*') return '&times;'
+    if (this.content == '+') return '&plus;';
+    if (this.content == '-') return '&minus;';
+    if (this.content == '/') return '&divide;';
+    if (this.content == '*') return '&times;';
+  }
+
+  operation(){
+    if (this.content == '+') return (x, y) => x + y;
+    if (this.content == '-') return (x, y) => x - y;
+    if (this.content == '/') return (x, y) => x / y;
+    if (this.content == '*') return (x, y) => x * y;
   }
 
   displayContent(){
     return ` ${this.textContent()} `;
   }
+  clickOn(formulaState){
+    return formulaState.clickOnOperator(this);
+  }
 }
 
 
 class CalculatorButtonNumber extends CalculatorButton{
+  clickOn(formulaState){
+    return formulaState.clickOnNumber(+this.content);
+  }
 }
 
 class CalculatorButtonFunction extends CalculatorButton{
   textContent(){
-    if (this.content == '=') return '&equals;'
+    if (this.content == '=') return '&equals;';
     if (this.content == 'C') return 'C';
+  }
+  clickOn(formulaState){
+    if (this.content == '=') return formulaState.evaluate();
+    if (this.content == 'C') return formulaState.clearState();
   }
 }
 

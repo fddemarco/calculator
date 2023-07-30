@@ -1,4 +1,3 @@
-/*import {test, describe, expect} from '@jest/globals';*/
 const {Calculator} = require('../src/calculator.js');
 const {
   CalculatorButtonNumber,
@@ -8,16 +7,6 @@ const {
 
 
 describe('Calculator operations', () => {
-  test('Click On Number', () => {
-    const calculator = new Calculator();
-    const button = new CalculatorButtonNumber(1);
-    calculator.clickOn(button);
-
-    const isButtonClicked = calculator.clickedOn().includes(button) &&
-                            calculator.clickedOn().length == 1;
-    expect(isButtonClicked).toBe(true);
-  });
-  
   test('Displays single digit', () => {
     const calculator = new Calculator();
     const button = new CalculatorButtonNumber(1);
@@ -60,5 +49,29 @@ describe('Calculator operations', () => {
     const number2 = new CalculatorButtonNumber(1);
     calculator.clickOn(number2);
     expect(calculator.displayContent()).toEqual(`1 ${operator.textContent()} 1`);
+  });
+
+  test('Displays result', () => {
+    const calculator = new Calculator();
+    const number1 = new CalculatorButtonNumber(1);
+    calculator.clickOn(number1);
+
+    
+    const operator = new CalculatorButtonOperator('+');
+    calculator.clickOn(operator);
+
+    const number2 = new CalculatorButtonNumber(1);
+    calculator.clickOn(number2);
+
+    const functionButton = new CalculatorButtonFunction('=');
+    calculator.clickOn(functionButton);
+
+    expect(calculator.displayContent()).toEqual(`2`);
+  });
+
+  
+  test('Displays 0 at start', () => {
+    const calculator = new Calculator();
+    expect(calculator.displayContent()).toEqual(`0`);
   });
 });
